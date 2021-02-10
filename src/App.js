@@ -25,10 +25,6 @@ keywordChanger = (e) => {
 
       if (image.keyword === this.state.keyword) return true;
 
-      if (!Number(this.state.horns)) return true;
-
-      if (image.horns === Number(this.state.horns)) return true;
-
       return false;
     })
 
