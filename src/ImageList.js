@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import images from './data.js';
 
 class ImageItem extends Component {
     render() {
@@ -15,13 +14,15 @@ class ImageItem extends Component {
 
 export default class ImageList extends Component {
     render() {
-        const beastProps = this.props.image.map(beastProps => <ImageItem beastProps={beastProps} key={beastProps.description} />)
+        const beastProps = this.props.images.map(beastProps => <ImageItem beastProps={beastProps} key={beastProps.description} />)
         return (
-
             <ul className='list-of-beasts'>
                 { beastProps }
-            </ul>
-            
+            </ul> 
         )
     }
 }
+
+
+
+
