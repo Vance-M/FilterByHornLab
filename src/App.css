@@ -38,6 +38,21 @@
 }
 
 .beasty-image {
-  height: 100px;
-  width: 100px;
+  height: 200px;
+  width: 200px;
+}
+
+.beasty {
+  list-style: none;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-of-beasts {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
 }

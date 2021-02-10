@@ -13,7 +13,7 @@ export default class App extends Component {
       // { hornData },
       <div>
         'hello'
-        <Header />
+        <Header image = {images}/>
         <ImageList image = {images} />
       </div>
     )

@@ -18,9 +18,7 @@ export default class ImageList extends Component {
         const beastProps = this.props.image.map(beastProps => <ImageItem beastProps={beastProps} key={beastProps.description} />)
         return (
 
-            <ul>
-                <p>test </p>
-                
+            <ul className='list-of-beasts'>
                 { beastProps }
             </ul>
             
