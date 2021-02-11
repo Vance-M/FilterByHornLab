@@ -36,3 +36,34 @@
     transform: rotate(360deg);
   }
 }
+.whole {
+  margin-left: 20px;
+}
+
+h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.filter {
+   display: flex;
+   justify-content: center;
+}
+.beasty-image {
+  height: 200px;
+  width: 200px;
+}
+
+.beasty {
+  list-style: none;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-of-beasts {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
