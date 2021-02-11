@@ -3,74 +3,53 @@ import React, { Component } from 'react'
 import Header from './header.js';
 import ImageList from './ImageList';
 import images from './data.js';
+import Dropdown from './Dropdown.js';
 
 
 export default class App extends Component {
   state = {
-    name: '',
     horns: '',
     keyword: ''
   }
   
   hornsChanger = (e) => {
-    this.setState({horns: e.target.value});
-}
-keywordChanger = (e) => {
+    this.setState({horns: Number(e.target.value)});
+  }
+  keywordChanger = (e) => {
   this.setState({keyword: e.target.value});
-}
+  }
+
   render() {
-    console.log(this.state);
+
     const filteredBeasty = images.filter((image) => {
-      if (!this.state.keyword) return true;
-
-      if (image.keyword === this.state.keyword) return true;
-
+      if (!this.state.keyword && !this.state.horns) return true;
+      if (this.state.keyword && !this.state.horns)
+      { if (image.keyword === this.state.keyword) return true;}
+      if(!this.state.keyword && this.state.horns)
+      { if (image.horns === this.state.horns) return true;}
+      if(this.state.keyword && this.state.horns)
+      { if (image.horns === this.state.horns && image.keyword === this.state.keyword) return true;}      
       return false;
     })
 
-    // const filteredBeasty = images.filter((image) => {
-    //   if (!Number(this.state.horns)) return true;
-
-    //   if (image.horns === Number(this.state.horns)) return true;
-
-    //   return false;
-    // })
     return (
-
       <div className='whole'>
           <Header />
           'hello'
-              <div className='filter'>
-                <form>
-                    <input type='number' value={this.state.horns} onChange={this.hornsChanger}/>
-                    
-                    Type of Beasty:
-                    <select value={this.state.keyword} onChange={this.keywordChanger}>
-                        <option value=''>All</option>
-                        <option value='narwhal'>Narwhal</option>
-                        <option value='rhino'>Rhino</option>
-                        <option value='unicorn'>Unicorn</option>
-                        <option value='unilego'>Unilego</option>
-                        <option value='triceratops'>Triceratops</option>
-                        <option value='markhor'>Markhor</option>
-                        <option value='mouflon'>Mouflon</option>
-                        <option value='addax'>Addax</option>
-                        <option value='chameleon'>Chameleon</option>
-                        <option value='lizard'>Lizard</option>
-                        <option value='dragon'>Dragon</option>
-                    </select>
-                    <button>Submit</button>
-                </form>
-            </div>
-            <div>
-                    <p>Horns: {this.state.horns}</p>
-                    Type: {this.state.keyword}
-                </div>
-        <ImageList images = {filteredBeasty} />
+          <div className='filter'>
+                Horn Number
+                <Dropdown currentValue={this.state.horns} handleChanger= {this.hornsChanger} options={['', 1, 2, 3, 100]}   />
+          </div>
+          <div className='filter'>
+                Beasty Type
+                <Dropdown currentValue={this.state.keyword} handleChanger= {this.keywordChanger} options={['', 'narwhal', 'rhino', 'unicorn', 'unilego', 'triceratops', 'markhor', 'mouflon', 'addax', 'chameleon', 'lizard', 'dragon']}  />
+          </div>
+          <div>
+            <p>Horns: {this.state.horns}</p>
+            Type: {this.state.keyword}
+          </div>
+          <ImageList images = {filteredBeasty} />
       </div>
     )
-  }
+  }  
 }
-
-
-

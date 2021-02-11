@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class ImageItem extends Component {
     render() {
         return (
-            <li className='beasty' key={this.props.beastProps.horns}>
+            <li className='beasty' key={this.props.beastProps.title}>
                 <p><img src={this.props.beastProps.url} alt = {this.props.beastProps.description} className= 'beasty-image'/></p>
                 <p>{this.props.beastProps.title}</p>
                 <p>{this.props.beastProps.description}</p>
